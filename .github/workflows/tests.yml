@@ -1,0 +1,31 @@
+name: Pruebas
+on:
+  push:
+  pull_request:
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Comprobar sintaxis y Tkinter
+        run: |
+          python -m py_compile backend.py windows/windows_ui.py
+          python -c "import tkinter; print(tkinter.TkVersion)"
+      - name: Pruebas de adaptación para Windows
+        run: python -m unittest discover -s tests -p test_windows_port.py
+  macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compilar la app
+        run: bash scripts/build-macos.sh
+      - name: Pruebas del motor
+        run: |
+          python3 -m unittest discover -s tests -p test_backend.py
+          python3 -m unittest discover -s tests -p test_dedup.py
+          python3 -m unittest discover -s tests -p test_staging.py
+          python3 -m unittest discover -s tests -p test_canonical.py

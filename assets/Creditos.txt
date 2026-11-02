@@ -1,0 +1,7 @@
+YA TU SAABE!!
+
+Escenas y aplicación del proyecto. El mapa utiliza Natural Earth II de Tom Patterson / Natural Earth, de dominio público:
+https://www.naturalearthdata.com/about/terms-of-use/
+https://www.flexprojector.com/data/NE2_flat_ocean.png.zip
+
+La descarga utiliza yt-dlp (https://github.com/yt-dlp/yt-dlp) y FFmpeg (https://ffmpeg.org/), instalados en el Mac. Las canciones deben descargarse solo cuando el usuario tenga permiso para hacerlo.
